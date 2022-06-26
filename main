@@ -1,0 +1,47 @@
+let praises = ["Good boy!", "Well done!!", "Awesome!", "What a cutie you are!",
+	"You're the best!", "Awwwww...", "Come here you!", "<3 <3 <3",
+	"Good girl", "Who's the best doggie in town?", "Good job!"
+]; //array with praise
+let praiseText = false; 
+let alphaText = 255;
+let welcomeAlpha=255;
+let textX=0;
+let textYStart=0;
+let textY=0;
+let textHeight=0;
+let gravity=0.5;
+let intro=true;
+//let
+
+
+function preload() {
+	loadCat()
+	loadDog();
+	loadTail();
+	VT323 = loadFont('VT323-Regular.ttf');
+}
+
+function setup() {
+	imageMode(CENTER)
+	
+	createCanvas(750, 700);
+	frameRate(60);
+	
+	initTrans();
+	initCat(); 
+	initTail();
+	initDog();
+
+	//How is Text displayed
+	textFont(VT323);
+	textAlign(CENTER, CENTER);
+
+}
+
+
+function draw() {
+	let s=second(); //add timing
+	if (frameCount>200){
+		intro=false;
+	}
+	
