@@ -101,3 +101,32 @@ textHeight-=gravity;
 		}
 }
 	}
+ //textfade als trigger für false
+}
+
+function mousePressed() {
+		intro=false;
+	//Wenn man klickt, wedelt der Hund schneller mit dem Schwanz
+	animationSlowDownTail = animationSlowDownTail - 2;
+	if (animationSlowDownTail < 2) {
+		animationSlowDownTail = 20; //eigentlich zähler geht eins rauf
+		dogMood += 1;
+		catHappy=false;
+		catRoll=true;
+	
+	}
+	//
+	praise=random(praises);
+	textHeight=40;
+	textX=random(350,370);
+	textYStart=random(60,100);
+	praiseText = true;
+	alphaText = 255;
+	
+	//Happy Cat
+	if (dist(mouseX, mouseY, catX, catY) <= (catSizeW/2)) {
+	catHappy = true;
+			dogMood=0;
+		dogImgIndex = 0 //reset DogImg Index to zero, so that the right dog image is displayed again
+			}
+}
