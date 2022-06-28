@@ -45,3 +45,59 @@ function draw() {
 		intro=false;
 	}
 	
+//Intro 
+	//the Intro is displayed for a certain amount of time or until you click on it
+	if(intro){
+	background(0);
+	rectMode(CENTER);
+	fill(255);
+	let welcome="Welcome to the Good-dog-simulator!"
+	let subtitle="Treat your inner dog by clicking on it. -^_^-"
+	textSize(70);
+	text(welcome,width/2, height/2.7,650,680);
+		textSize(40);
+		text(subtitle,width/2, height/1.6,650,680);
+	}
+	
+if(!intro){	
+	background(255);
+	animateCat();
+	animateDog();
+	animateTail();
+	push();
+	animateTrans();
+	pop();
+	
+	//Introduction Fade Out
+	push();
+	fill(255,255,255,welcomeAlpha);
+	welcomeAlpha-=10;
+	let welcome="Welcome to the Good-dog-simulator!"
+	let subtitle="Treat your inner dog by clicking on it. -^_^-"
+	textSize(70);
+	text(welcome,width/2, height/2.7,650,680);
+		textSize(40);
+		text(subtitle,width/2, height/1.6,650,680);
+	pop();
+	
+	//Text
+	fill(0);
+	textSize(49);
+	
+if (praiseText) {
+		text(praise,textX , textY);
+	
+	//gravity Text
+	textHeight*=0.8;
+textHeight-=gravity;
+	textY=textYStart+textHeight;
+	
+	//Fade out text
+		alphaText= alphaText-5;
+	fill(0, 0, 0, alphaText);
+		if (alphaText <0) {
+			praiseText = false;
+			alphaText = 255;
+		}
+}
+	}
